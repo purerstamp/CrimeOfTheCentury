@@ -1,2 +1,2 @@
-# TheRedUnicorn
-Scripts système pour l'administration d'un serveur Linux
+# CrimeOfTheCentury
+Scripts systèmes pour l'administration d'un serveur Linux
