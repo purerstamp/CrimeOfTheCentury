@@ -10,6 +10,7 @@
 #
 # Auteur : Édouard LUMET <edouard@hello-community.fr>
 # Version : 1.0
+# Licence : GNU GPLv3 <https://www.gnu.org/licenses/gpl.html>
 ###########
 
 ## Répertoires à sauvegarder
