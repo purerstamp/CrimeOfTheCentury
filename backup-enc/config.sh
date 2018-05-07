@@ -8,7 +8,7 @@
 #
 # Ce fichier contient uniquement les paramètres.
 #
-# Auteur : Édouard LUMET <edouard@hello-community.fr>
+# Auteur : echodeltaFR <edouard@hello-community.fr>
 # Version : 1.0
 # Licence : GNU GPLv3 <https://www.gnu.org/licenses/gpl.html>
 ###########
