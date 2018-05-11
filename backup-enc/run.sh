@@ -11,6 +11,7 @@
 # compléter ce dernier. Voir : config.sh
 #
 # # Codes d'erreur #
+# 0 : Code de sortie nominale
 # 1 : Répertoire local de sauvegarde inexistant
 # 2 : Répertoire ou fichier à sauvegarder inexistant
 #
@@ -19,6 +20,7 @@
 # Licence : GNU GPLv3 <https://www.gnu.org/licenses/gpl.html>
 ###########
 . ./config.sh
+datec=$(date +%d%m%y)
 
 if [ ! -d $RepLocalBak ] ; then
   echo "$RepLocalBak : Répertoire local de sauvegarde inexistant"
@@ -31,5 +33,8 @@ for rep in $RepToBak ; do
     exit 2
   fi
 
+  archive=$RepLocalBak/sd-72079_$(echo $rep | awk -F"/" ' { for (i=2;i<=NF;i++) printf($i"-") }')_$datec.tar.bz2
+  tar jcf $archive $rep
+  openssl enc -in $archive -aes256 -pass pass:$PassEnc -out $archive.enc
 done
 exit 0
