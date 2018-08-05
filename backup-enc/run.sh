@@ -65,11 +65,12 @@ for rep in $RepToBak ; do
 
   archive=$RepLocalBak/sd-72079_$(echo $rep | awk -F"/" ' { for (i=2;i<=NF;i++) printf($i"-") }')_$datec.tar.bz2
   archiveold=$RepLocalBak/sd-72079_$(echo $rep | awk -F"/" ' { for (i=2;i<=NF;i++) printf($i"-") }')_$dateold.tar.bz2
+  archiveolddistante=sd-72079_$(echo $rep | awk -F"/" ' { for (i=2;i<=NF;i++) printf($i"-") }')_$dateold.tar.bz2.enc
   echo "> $archive"
   tar jcf $archive $rep
   openssl enc -in $archive -aes256 -pass pass:$PassEnc -out $archive.enc
   lftp -e "put $archive.enc ; quit" -u $FTPuser,$FTPpass $FTPserver
-  lftp -e "rm $archiveold.enc ; quit" -u $FTPuser,$FTPpass $FTPserver
+  lftp -e "rm $archiveolddistante ; quit" -u $FTPuser,$FTPpass $FTPserver
   rm $archive.enc $archiveold
   echo
 done
